@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-public class JmxJshell implements JmxJshellMBean {
+public class  JmxJshell implements JmxJshellMBean {
     public static final String MBEAN_NAME = "org.jmxjshell:type=JmxJshell";
 
     private JShell jshell;
@@ -70,7 +70,6 @@ public class JmxJshell implements JmxJshellMBean {
             events.forEach(new Consumer<SnippetEvent>() {
                 @Override
                 public void accept(SnippetEvent snippetEvent) {
-                    System.out.println(snippetEvent);
                     if (snippetEvent.status() != Snippet.Status.VALID) {
                         if (snippetEvent.exception() != null) {
                             snippetEvent.exception().printStackTrace(errPs);
